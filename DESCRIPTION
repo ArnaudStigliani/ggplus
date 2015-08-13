@@ -1,0 +1,12 @@
+Package: ggplus
+Type: Package
+Title: Set of additional functions for ggplot2
+Version: 0.1
+Date: 2015-08-11
+Author: Benjamin Guiastrennec
+Maintainer: Benjamin Guiastrennec <guiastrennec@gmail.com>
+Description: Additional functions for ggplot2
+Depends: R (>= 3.0.2), ggplot2 (>= 1.0.0)
+License: GPL-2
+LazyData: true
+URL: https://github.com/guiastrennec/ggplus
