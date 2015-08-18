@@ -16,10 +16,24 @@ library(ggplus)
 ### `facet_multiple()`
 `facet_multiple()` is an extension of `facet_wrap()` in `ggplot2` that allows to split panels over multiple pages.
 
-+ First page   
+#### Example
+```r
+# Generate ggplot object
+p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) + 
+geom_point(alpha = 0.5) + 
+labs(x     = 'Price (US dollars)', 
+     y     = 'Carat', 
+     title = 'A graph about diamonds')
+ 
+# Plot on multiple pages 
+facet_multiple(plot = p, facets = 'color', ncol = 2, nrow = 2)
+```
+
+#### Result
+##### First page   
 ![page1](inst/img/facet_multiple_1.png)
 
-+ Last page   
+##### Last page   
 ![page2](inst/img/facet_multiple_2.png)
 
 
@@ -30,10 +44,25 @@ Is an extension of `facet_wrap()` in `ggplot2` that prevent the layout from auto
 ### `theme_readable()`
 Theme intended to make `ggplot2` more readable when used in presentation or papers by using black and bold font. In addition the contrast on the background and grid lines was reduced to focus the attention on the data itself.
 
-+ Classic `ggplot2` theme   
+#### Example
+```r
+# Generate ggplot object
+p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) + 
+geom_point(alpha = 0.5) + 
+labs(x     = 'Price (US dollars)', 
+     y     = 'Carat', 
+     title = 'A graph about diamonds')
+ 
+# Add theme_readable()
+p <- p + theme_readable(base_size       = 12, 
+                        legend.position = "right")
+```
+
+#### Result
+##### Classic `ggplot2` theme   
 ![theme_classic](inst/img/theme_classic.png)
 
-+ `theme_readable()`   
+##### `theme_readable()`   
 ![theme_readable](inst/img/theme_readable.png)
 
 
@@ -69,8 +98,8 @@ pdf('Example_marrangeGrob.pdf', w = 12, h = 8)
 dev.off()
 ```
 
-+ First page   
+##### First page   
 ![page3](inst/img/marrangeGrob_1.png)
 
-+ Last page   
+##### Last page   
 ![page4](inst/img/marrangeGrob_2.png)
