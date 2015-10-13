@@ -52,7 +52,7 @@ facet_layout <- function(plot = NULL, facets = NULL, nrow = 2, ncol = 2, scales 
   nrow_last  <- max(which(n_panel_tot >= seq(1, n_layout, by = ncol)))
   panel_last <- n_panel_tot - ncol*(nrow_last - 1)
   
-  if(nrow_last == nrow & nrow != 1) {
+  if(n_missing == 0 || nrow_last == nrow & nrow != 1) {
     plot <- plot + facet_wrap(facets = facets, ncol = ncol, scales = scales)
     return(plot)
   }
@@ -89,7 +89,7 @@ facet_layout <- function(plot = NULL, facets = NULL, nrow = 2, ncol = 2, scales 
   g$layout <- g$layout[!g$layout$name %in% drop_grobs(sep = '-'),]
   
   # Move bottom axis closer to panels
-  g$layout[g$layout$name %in% paste0('axis_b-', (1:panel_last)+((nrow-1)*ncol)), 'b'] <- seq(1, 40, by = 5)[nrow_last+1]
+  g$layout[g$layout$name %in% paste0('axis_b-', (1:panel_last)+((nrow-1)*ncol)), 'b'] <- seq(1, 40, by = 4)[nrow_last+1]
   
   # Print the plot 
   grid::grid.newpage()
