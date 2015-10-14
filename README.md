@@ -19,22 +19,22 @@ library(ggplus)
 #### Example
 ```r
 # Generate ggplot object
-p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) + 
-geom_point(alpha = 0.5) + 
-labs(x     = 'Price (US dollars)', 
-     y     = 'Carat', 
+p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) +
+geom_point(alpha = 0.5) +
+labs(x     = 'Price (US dollars)',
+     y     = 'Carat',
      title = 'A graph about diamonds')
- 
-# Plot on multiple pages 
+
+# Plot on multiple pages
 facet_multiple(plot = p, facets = 'color', ncol = 2, nrow = 2)
 ```
 
 #### Result
 ##### First page   
-![page1](inst/img/facet_multiple_1.png)
+![page1](inst/img/facet_multiple_1.jpg)
 
 ##### Last page   
-![page2](inst/img/facet_multiple_2.png)
+![page2](inst/img/facet_multiple_2.jpg)
 
 
 ### `facet_layout()`
@@ -47,23 +47,23 @@ Theme intended to make `ggplot2` more readable when used in presentation or pape
 #### Example
 ```r
 # Generate ggplot object
-p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) + 
-geom_point(alpha = 0.5) + 
-labs(x     = 'Price (US dollars)', 
-     y     = 'Carat', 
+p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) +
+geom_point(alpha = 0.5) +
+labs(x     = 'Price (US dollars)',
+     y     = 'Carat',
      title = 'A graph about diamonds')
- 
+
 # Add theme_readable()
-p <- p + theme_readable(base_size       = 12, 
+p <- p + theme_readable(base_size       = 12,
                         legend.position = "right")
 ```
 
 #### Result
 ##### Classic `ggplot2` theme   
-![theme_classic](inst/img/theme_classic.png)
+![theme_classic](inst/img/theme_classic.jpg)
 
 ##### `theme_readable()`   
-![theme_readable](inst/img/theme_readable.png)
+![theme_readable](inst/img/theme_readable.jpg)
 
 
 ## Plot on multiple pages using `marrangeGrob`
@@ -75,21 +75,21 @@ library(ggplus)
 library(gridExtra)
 
 # Using the same example as in facet_multiple()
-p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) + 
+p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) +
   labs(x = 'Price', y = 'Carat', title = 'A plot about diamonds') +
   geom_point(alpha = 0.5) + theme_readable(legend.position = 'top')
 
 # Generate ggplot2 plot for each level
-plot.list <- by(data     = diamonds, 
-                INDICES  = diamonds$color, 
+plot.list <- by(data     = diamonds,
+                INDICES  = diamonds$color,
                 simplify = TRUE,
                 FUN      = function(x) {
                   p %+% x + ggtitle(unique(x$color))
                 })
 
 # Build the pages
-multi.plot <- marrangeGrob(grobs = plot.list, 
-                           nrow = 2, ncol = 2, 
+multi.plot <- marrangeGrob(grobs = plot.list,
+                           nrow = 2, ncol = 2,
                            top = quote(paste(p$labels$title,'\nPage', g, 'of', pages)))
 
 # Save pages
@@ -99,7 +99,7 @@ dev.off()
 ```
 
 ##### First page   
-![page3](inst/img/marrangeGrob_1.png)
+![page3](inst/img/marrangeGrob_1.jpg)
 
 ##### Last page   
-![page4](inst/img/marrangeGrob_2.png)
+![page4](inst/img/marrangeGrob_2.jpg)
