@@ -19,6 +19,7 @@
 #' 
 #' facet_multiple(plot = p, facets = 'color', ncol = 2, nrow = 2)
 #' }
+#' @import ggplot2
 #' @export
 #'
 facet_multiple <- function(plot = NULL, facets = NULL, ncol = 2, nrow = 2, scales = 'fixed') {

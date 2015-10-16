@@ -19,6 +19,7 @@
 #' 
 #' facet_layout(plot = p, facets = 'color', ncol = 4, nrow = 3)
 #' }
+#' @import ggplot2
 #' @export
 #'
 facet_layout <- function(plot = NULL, facets = NULL, nrow = 2, ncol = 2, scales = 'fixed') {

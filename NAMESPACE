@@ -3,3 +3,4 @@
 export(facet_layout)
 export(facet_multiple)
 export(theme_readable)
+import(ggplot2)

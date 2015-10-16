@@ -15,6 +15,7 @@
 #'  geom_point(alpha = 0.5) + 
 #'  theme_readable(legend.position = 'top')
 #' }
+#' @import ggplot2
 #' @export
 #'
 theme_readable <- function(base_size = 12, legend.position = 'right'){
