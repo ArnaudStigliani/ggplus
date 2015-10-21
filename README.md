@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/guiastrennec/ggplus.svg?branch=master)](https://travis-ci.org/guiastrennec/ggplus)
+
 # `ggplus`
 Set of additional functions for `ggplot2`
 
