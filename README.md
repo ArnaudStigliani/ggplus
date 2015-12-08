@@ -105,7 +105,3 @@ dev.off()
 
 ##### Last page   
 ![page4](inst/img/marrangeGrob_2.jpg)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/guiastrennec/ggplus/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
