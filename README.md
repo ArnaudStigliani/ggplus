@@ -55,18 +55,21 @@ labs(x     = 'Price (US dollars)',
      title = 'A graph about diamonds')
 
 # Plot on multiple pages (output plot to R/Rstudio)
-facet_multiple(plot = p, facets = 'color', ncol = 2, nrow = 2)
+facet_multiple(plot = p, 
+               facets = 'color', 
+               ncol = 2, 
+               nrow = 2)
 ```
 
 #### Result
 
 ##### First page
 
-![page1](inst/img/facet_multiple_1.jpg)
+![page1](inst/img/facet_multiple-1.jpg)
 
 ##### Last page
 
-![page2](inst/img/facet_multiple_2.jpg)
+![page2](inst/img/facet_multiple-2.jpg)
 
 #### Save plots
 
@@ -74,7 +77,10 @@ To save the plots into files (pdf, png, etc.), `facet_multiple` should be called
 
 ``` r
 pdf('multiple_page_plot.pdf')
-facet_multiple(plot = p, facets = 'color', ncol = 2, nrow = 2)
+facet_multiple(plot = p, 
+               facets = 'color', 
+               ncol = 2, 
+               nrow = 2)
 dev.off()
 ```
 
@@ -86,17 +92,9 @@ Is an extension of `facet_wrap()` in `ggplot2` that prevent the layout from auto
 
 Theme intended to make `ggplot2` more readable when used in presentation or papers by using black and bold font. In addition the contrast on the background and grid lines was reduced to focus the attention on the data itself.
 
-#### Example
+#### Usage
 
 ``` r
-# Generate ggplot object
-p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) +
-geom_point(alpha = 0.5) +
-labs(x     = 'Price (US dollars)',
-     y     = 'Carat',
-     title = 'A graph about diamonds')
-
-# Add theme_readable()
 p + theme_readable(base_size       = 12,
                    legend_position = "right")
 ```
@@ -105,11 +103,13 @@ p + theme_readable(base_size       = 12,
 
 ##### Classic `ggplot2` theme
 
-![theme\_classic](inst/img/theme_classic.jpg)
+![theme\_classic](inst/img/theme_classic-1.jpg)
 
 ##### `theme_readable()`
 
-![theme\_readable](inst/img/theme_readable.jpg)
+![theme\_readable](inst/img/theme_readable-1.jpg)
+
+------------------------------------------------------------------------
 
 Plot on multiple pages using `marrangeGrob`
 -------------------------------------------
@@ -119,13 +119,15 @@ The library `gridExtra` features the function `marrangeGrob` an equivalent to `a
 The example below shows how to reproduce the plot described under `facet_multiple()`.
 
 ``` r
-library(ggplus)
 library(gridExtra)
 
 # Using the same example as in facet_multiple()
 p <- ggplot(diamonds, aes(x = price, y = carat, color = cut)) +
-  labs(x = 'Price', y = 'Carat', title = 'A plot about diamonds') +
-  geom_point(alpha = 0.5) + theme_readable(legend_position = 'top')
+  labs(x = 'Price (US dollars)',
+       y = 'Carat', 
+       title = 'A plot about diamonds') +
+  geom_point(alpha = 0.5) + 
+  ggplus::theme_readable(legend_position = 'top')
 
 # Generate ggplot2 plot for each level
 plot.list <- by(data     = diamonds,
@@ -133,23 +135,34 @@ plot.list <- by(data     = diamonds,
                 simplify = TRUE,
                 FUN      = function(x) {
                   p %+% x + ggtitle(unique(x$color))
-                })
+                }
+)
 
-# Build the pages
+# Build the grobs
 multi.plot <- marrangeGrob(grobs = plot.list,
-                           nrow = 2, ncol = 2,
-                           top = quote(paste(p$labels$title,'\nPage', g, 'of', pages)))
+                           nrow  = 2, ncol = 2,
+                           top   = quote(paste(p$labels$title,'\nPage', g, 'of', pages)))
 
-# Save pages
-pdf('Example_marrangeGrob.pdf', w = 12, h = 8)
- print(multi.plot)
-dev.off()
+# Plot on multiple pages (output plot to R/Rstudio)
+print(multi.plot)
 ```
+
+#### Results
 
 ##### First page
 
-![page3](inst/img/marrangeGrob_1.jpg)
+![page3](inst/img/marrangeGrob-1.jpg)
 
 ##### Last page
 
-![page4](inst/img/marrangeGrob_2.jpg)
+![page4](inst/img/marrangeGrob-2.jpg)
+
+#### Save plots
+
+To save the plots into files (pdf, png, etc.), the `marrangeGrob` output should be called after a file connection has been oppened.
+
+``` r
+pdf('Example_marrangeGrob.pdf', width = 12, height = 8)
+ print(multi.plot)
+dev.off()
+```
