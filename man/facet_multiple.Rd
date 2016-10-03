@@ -5,7 +5,7 @@
 \title{Use \code{facet_wrap()} over multiple pages}
 \usage{
 facet_multiple(plot = NULL, facets = NULL, ncol = 2, nrow = 2,
-  scales = "fixed")
+  page = NULL, scales = "fixed")
 }
 \arguments{
 \item{plot}{a ggplot object}
@@ -15,6 +15,8 @@ facet_multiple(plot = NULL, facets = NULL, ncol = 2, nrow = 2,
 \item{ncol}{number of columns}
 
 \item{nrow}{number of rows}
+
+\item{page}{integer to select the page to be drawn}
 
 \item{scales}{should scales be fixed ("fixed", the default), free ("free"), 
 or free in one dimension ("free_x", "free_y")}

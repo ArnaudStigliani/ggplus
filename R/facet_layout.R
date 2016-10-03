@@ -46,7 +46,7 @@ facet_layout <- function(plot = NULL, facets = NULL, nrow = 2, ncol = 2, scales 
   n_layout    <- ncol*nrow
   
   if (n_panel_tot > n_layout) {   # Check layout
-   stop('nrow * ncol >= n is not TRUE, use \"facet_multiple()\" instead')
+    stop('nrow * ncol >= n is not TRUE, use \"facet_multiple()\" instead')
   }
   
   n_missing  <- n_layout - n_panel_tot
@@ -59,13 +59,13 @@ facet_layout <- function(plot = NULL, facets = NULL, nrow = 2, ncol = 2, scales 
   }
   
   # Clean up factors
-  plot$data[, 'ghosts'] <- interaction(plot$data[, facets])
+  plot$data[, 'panel_to_drop'] <- interaction(plot$data[, facets])
   
-  # Add ghost panels
-  levels(plot$data[, 'ghosts']) <- c(levels(plot$data[, 'ghosts']), 
-                                     paste0('ghost=', 1:n_missing))
+  # Add panels to drop
+  levels(plot$data[, 'panel_to_drop']) <- c(levels(plot$data[, 'panel_to_drop']), 
+                                            paste0('panel_to_drop_no', 1:n_missing))
   
-  plot <- plot + facet_wrap(facets = 'ghosts', ncol = ncol, drop = FALSE, scales = scales)
+  plot <- plot + facet_wrap(facets = 'panel_to_drop', ncol = ncol, drop = FALSE, scales = scales)
   
   drop_grobs <- function(sep = '', ...) {
     if (scales %in% c('free', 'free_x')) {
