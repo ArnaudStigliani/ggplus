@@ -62,8 +62,8 @@ facet_layout <- function(plot = NULL, facets = NULL, nrow = 2, ncol = 2, scales 
   plot$data[, 'panel_to_drop'] <- interaction(plot$data[, facets])
   
   # Add panels to drop
-  levels(plot$data[, 'panel_to_drop']) <- c(levels(plot$data[, 'panel_to_drop']), 
-                                            paste0('panel_to_drop_no', 1:n_missing))
+  levels(plot$data[, 'panel_to_drop']) <- c(levels(plot$data[, 'panel_to_drop']),
+                                            paste0('empty', 1:n_missing))
   
   plot <- plot + facet_wrap(facets = 'panel_to_drop', ncol = ncol, drop = FALSE, scales = scales)
   
