@@ -2,7 +2,7 @@ README
 ================
 
 [![Build Status](https://travis-ci.org/guiastrennec/ggplus.svg?branch=master)](https://travis-ci.org/guiastrennec/ggplus)
-![](http://www.r-pkg.org/badges/version/modelviz)
+![](http://www.r-pkg.org/badges/version/ggplus)
 
 `ggplus`
 ========
