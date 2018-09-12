@@ -3,6 +3,7 @@ README
 
 [![Build Status](https://travis-ci.org/guiastrennec/ggplus.svg?branch=master)](https://travis-ci.org/guiastrennec/ggplus)
 ![](http://www.r-pkg.org/badges/version/ggplus)
+[![lifecycle](https://img.shields.io/badge/lifecycle-retired-orange.svg)](https://www.tidyverse.org/lifecycle/#retired)
 
 `ggplus`
 ========
