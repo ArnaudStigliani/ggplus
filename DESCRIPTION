@@ -2,7 +2,6 @@ Package: ggplus
 Type: Package
 Title: Set of additional functions for ggplot2
 Version: 0.1
-Date: 2016-20-09
 Author: Benjamin Guiastrennec
 Maintainer: Benjamin Guiastrennec <guiastrennec@gmail.com>
 Description: Additional facet and theme functions for ggplot2.
