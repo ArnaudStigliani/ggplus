@@ -4,9 +4,7 @@ README
 [![Repo
 Status](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 
-# `ggplus`
-
-Set of additional functions for `ggplot2`
+# ggplus
 
 ## **Warning**
 

@@ -16,10 +16,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 [![Repo Status](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 
-# `ggplus`
-
-Set of additional functions for `ggplot2`
-
+# ggplus
 ## __Warning__
 The development of `ggplus` is no longer supported, and the current package version is not compatible with ggplot (>=2.2.0). As an alternative I suggest that you use the very good [`facet_wrap_paginate()`](https://ggforce.data-imaginist.com/reference/facet_wrap_paginate.html) or [`facet_grid_paginate()`](https://ggforce.data-imaginist.com/reference/facet_grid_paginate.html) from the [`ggforce`](https://ggforce.data-imaginist.com/) package. 
 
